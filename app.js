@@ -17,7 +17,7 @@ app
             console.log(`-`.repeat(20));
             console.log(`请求方法：${ctx.method}`);
             console.log(`请求 URL：${ctx.url}`);
-            console.log(`请求体\n${ctx.request.body ? ctx.request.body : '空'}`);
+            console.log(`请求体\n${ctx.request.body ? JSON.stringify(ctx.request.body) : '空'}`);
         }
         catch (e)
         {
@@ -26,7 +26,7 @@ app
         finally
         {
             await next();
-            console.log(`响应体\n${ctx.body ? ctx.body : '空'}`);
+            console.log(`响应体\n${ctx.body ? JSON.stringify(ctx.body) : '空'}`);
             console.log(`-`.repeat(20));
         }
     })
