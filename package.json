@@ -1,0 +1,29 @@
+{
+  "name": "yunzhan-test-server",
+  "version": "1.0.0",
+  "description": "yunzhan test server",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Soulike/Yunzhan-Test-Server.git"
+  },
+  "keywords": [
+    "node"
+  ],
+  "author": "soulike",
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/Soulike/Yunzhan-Test-Server/issues"
+  },
+  "homepage": "https://github.com/Soulike/Yunzhan-Test-Server#readme",
+  "dependencies": {
+    "koa": "^2.7.0",
+    "koa-bodyparser": "^4.2.1",
+    "koa-multer": "^1.0.2",
+    "koa-router": "^7.4.0",
+    "koa-session": "^5.10.1"
+  }
+}
