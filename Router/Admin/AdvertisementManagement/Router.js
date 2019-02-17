@@ -45,6 +45,14 @@ module.exports = router =>
         {
             name: NAMESPACE.ADVERTISEMENT_MANAGEMENT.IMAGE.FILE,
             maxCount: 1,
+        },
+        {
+            name: NAMESPACE.ADVERTISEMENT_MANAGEMENT.IMAGE.QR_CODE_URL,
+            maxCount: 1,
+        },
+        {
+            name: NAMESPACE.ADVERTISEMENT_MANAGEMENT.IMAGE.QR_CODE_POSITION,
+            maxCount: 1,
         }],
     ), async (ctx, next) =>
     {
