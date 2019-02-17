@@ -1,7 +1,7 @@
 const {advertisementManagementPrefix} = require('./Function');
 const {SuccessResponse} = require('../../../Object');
 const NAMESPACE = require('../../../Namespace');
-const {randomInteger} = require('../../../Function');
+const {randomInteger, randomString} = require('../../../Function');
 const multer = require('koa-multer');
 
 const upload = multer({dest: '/tmp/'});
@@ -61,4 +61,34 @@ module.exports = router =>
         ctx.body = new SuccessResponse();
         await next();
     });
+
+    router.get(advertisementManagementPrefix('/getAdvertisementList'), async (ctx, next) =>
+    {
+        const advertisementList = {};
+        const listLength = randomInteger(0, 300);
+        for (let i = 0; i < listLength; i++)
+        {
+            advertisementList[i + 1] = {
+                [NAMESPACE.ADVERTISEMENT_MANAGEMENT.ADVERTISEMENT.TYPE]: randomInteger(0, 1), // 广告类型，枚举值
+                [NAMESPACE.ADVERTISEMENT_MANAGEMENT.ADVERTISEMENT.NAME]: randomString(10), // 文件名
+                [NAMESPACE.ADVERTISEMENT_MANAGEMENT.ADVERTISEMENT.URL]: 'https://static.soulike.tech/userImage/1545187128767.webp', // 预览 URL
+                [NAMESPACE.ADVERTISEMENT_MANAGEMENT.IMAGE.QR_CODE_URL]: `https://${randomString(5)}.com`, // 二维码 URL
+                [NAMESPACE.ADVERTISEMENT_MANAGEMENT.IMAGE.QR_CODE_POSITION]: randomInteger(1, 4), // 二维码位置
+            };
+        }
+
+        ctx.body = new SuccessResponse(
+            {
+                [NAMESPACE.ADVERTISEMENT_MANAGEMENT.LIST.ADVERTISEMENT]: advertisementList,
+            },
+        );
+        await next();
+    });
+
+    router.post(advertisementManagementPrefix('/updateAdvertisementInfo'), async (ctx, next) =>
+    {
+        ctx.body = new SuccessResponse();
+        await next();
+    });
+
 };
