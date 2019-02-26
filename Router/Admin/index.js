@@ -4,4 +4,5 @@ module.exports = router =>
     require('./ScreenManagement')(router);
     require('./AdvertisementManagement')(router);
     require('./TagManagement')(router);
+    require('./ResourcePackManagement')(router);
 };
