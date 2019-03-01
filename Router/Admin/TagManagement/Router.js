@@ -29,7 +29,7 @@ module.exports = router =>
             tagList.push(
                 {
                     [NAMESPACE.TAG_MANAGEMENT.TAG.ID]: i + 1, // Tag 的 ID
-                    [NAMESPACE.TAG_MANAGEMENT.TAG.NAME]: randomString(randomInteger(1, 10)), // Tag 的名字
+                    [NAMESPACE.TAG_MANAGEMENT.TAG.NAME]: randomString(randomInteger(1, 6)), // Tag 的名字
                     [NAMESPACE.TAG_MANAGEMENT.TAG.BINDING_RESOURCE_PACK_AMOUNT]: randomInteger(0, 20), // Tag 当前绑定了多少个资源包
                     [NAMESPACE.TAG_MANAGEMENT.TAG.CREATION_TIME]: randomInteger(Date.now() - 384756834, Date.now()), // Tag 是什么时候创建的
                 },

@@ -7,7 +7,9 @@ module.exports = {
     RESOURCE_PACK: {
         ID: 'id',
         NAME: 'name',
+        TAG_NAME: 'tagName',
         ADVERTISEMENT_AMOUNT: 'advertisementAmount',
+        SCREEN_AMOUNT: 'screenAmount',
         DESCRIPTION: 'description',
     },
 

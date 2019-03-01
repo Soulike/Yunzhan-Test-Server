@@ -95,30 +95,6 @@ module.exports = router =>
         await next();
     });
 
-    router.get(screenManagementPrefix('/getResourcePackList'), async (ctx, next) =>
-    {
-        const resourcePackList = [];
-        const resourcePackListLength = randomInteger(0, 50);
-        for (let i = 0; i < resourcePackListLength; i++)
-        {
-            resourcePackList.push(
-                {
-                    [NAMESPACE.RESOURCE_PACK_MANAGEMENT.RESOURCE_PACK.ID]: i,// 资源包 ID
-                    [NAMESPACE.RESOURCE_PACK_MANAGEMENT.RESOURCE_PACK.NAME]: randomCharacters(5),// 资源包名
-                    [NAMESPACE.RESOURCE_PACK_MANAGEMENT.RESOURCE_PACK.ADVERTISEMENT_AMOUNT]: randomInteger(10, 30),// 内含广告数量
-                    [NAMESPACE.RESOURCE_PACK_MANAGEMENT.RESOURCE_PACK.DESCRIPTION]: randomCharacters(30),// 资源包备注
-                },
-            );
-        }
-
-        ctx.body = new SuccessResponse(
-            {
-                [NAMESPACE.RESOURCE_PACK_MANAGEMENT.LIST.RESOURCE_PACK]: resourcePackList,
-            },
-        );
-        await next();
-    });
-
     router.post(screenManagementPrefix('/bindResourcePack'), async (ctx, next) =>
     {
         ctx.body = new SuccessResponse();
