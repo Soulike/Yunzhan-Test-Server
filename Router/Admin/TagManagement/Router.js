@@ -23,7 +23,7 @@ module.exports = router =>
     router.get(tagManagementPrefix('/getTagList'), async (ctx, next) =>
     {
         const tagList = [];
-        const listLength = randomInteger(0, 50);
+        const listLength = randomInteger(20, 50);
         for (let i = 0; i < listLength; i++)
         {
             tagList.push(

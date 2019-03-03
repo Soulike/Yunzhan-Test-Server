@@ -16,5 +16,10 @@ module.exports = {
     LIST: {
         RESOURCE_PACK: 'resourcePackList',
         RESOURCE_PACK_ID: 'resourcePackIdList',
+        ADVERTISEMENT_ID: 'advertisementIdList',
+        TAG_ID: 'tagIdList',
+        TAG_NAME: 'tagNameList',
+        SCREEN_NAME: 'screenNameList',
+        ADVERTISEMENT: 'advertisementList',
     },
 };

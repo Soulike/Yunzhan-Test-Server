@@ -6,10 +6,28 @@ const router = require('./Router');
 
 const {SERVER: {KEY, PORT, SESSION}} = require('./Config');
 
+async function setTimeoutAsync(time)
+{
+    return new Promise(resolve =>
+    {
+        setTimeout(() =>
+        {
+            resolve();
+        }, time);
+    });
+}
+
 app.keys = KEY;
 app
     .use(bodyParser())
     .use(session(SESSION, app))
+    .use(router.routes())
+    .use(router.allowedMethods())
+    .use(async (ctx, next) =>
+    {
+        await setTimeoutAsync(1000);
+        await next();
+    })
     .use(async (ctx, next) =>
     {
         try
@@ -30,8 +48,6 @@ app
             console.log(`-`.repeat(20));
         }
     })
-    .use(router.routes())
-    .use(router.allowedMethods())
     .listen(PORT, () =>
     {
         console.log(`测试服务器运行在 ${PORT} 端口`);

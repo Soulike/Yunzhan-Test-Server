@@ -65,7 +65,7 @@ module.exports = router =>
     router.get(advertisementManagementPrefix('/getAdvertisementList'), async (ctx, next) =>
     {
         const advertisementList = [];
-        const listLength = randomInteger(0, 300);
+        const listLength = randomInteger(50, 300);
         for (let i = 0; i < listLength; i++)
         {
             advertisementList.push({
