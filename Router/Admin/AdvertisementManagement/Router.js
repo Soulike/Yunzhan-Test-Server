@@ -1,7 +1,7 @@
 const {advertisementManagementPrefix} = require('./Function');
 const {SuccessResponse} = require('../../../Object');
 const NAMESPACE = require('../../../Namespace');
-const {randomInteger, randomString} = require('../../../Function');
+const {randomInteger} = require('../../../Function');
 const multer = require('koa-multer');
 
 const upload = multer({dest: '/tmp/'});
@@ -12,9 +12,9 @@ module.exports = router =>
     {
         ctx.body = new SuccessResponse(
             {
-                [NAMESPACE.ADVERTISEMENT_MANAGEMENT.BASIC_INFO.ADVERTISEMENT_AMOUNT]: randomInteger(20, 30),// 总广告数
-                [NAMESPACE.ADVERTISEMENT_MANAGEMENT.BASIC_INFO.IMAGE_AMOUNT]: randomInteger(10, 20),// 图片形式的广告数
-                [NAMESPACE.ADVERTISEMENT_MANAGEMENT.BASIC_INFO.ADVERTISEMENT_FILE_SIZE]: randomInteger(50000000, 100000000),// 广告占用空间大小
+                [NAMESPACE.ADVERTISEMENT_MANAGEMENT.BASIC_INFO.ADVERTISEMENT_AMOUNT]: 10,// 总广告数
+                [NAMESPACE.ADVERTISEMENT_MANAGEMENT.BASIC_INFO.IMAGE_AMOUNT]: 10,// 图片形式的广告数
+                [NAMESPACE.ADVERTISEMENT_MANAGEMENT.BASIC_INFO.ADVERTISEMENT_FILE_SIZE]: 20 * 1024 * 1024,// 广告占用空间大小
             },
         );
         await next();
@@ -65,16 +65,67 @@ module.exports = router =>
     router.get(advertisementManagementPrefix('/getAdvertisementList'), async (ctx, next) =>
     {
         const advertisementList = [];
-        const listLength = randomInteger(50, 300);
-        for (let i = 0; i < listLength; i++)
-        {
-            advertisementList.push({
-                [NAMESPACE.ADVERTISEMENT_MANAGEMENT.ADVERTISEMENT.ID]: i + 1, // 广告的 ID
-                [NAMESPACE.ADVERTISEMENT_MANAGEMENT.ADVERTISEMENT.TYPE]: randomInteger(0, 1), // 广告类型，枚举值
-                [NAMESPACE.ADVERTISEMENT_MANAGEMENT.ADVERTISEMENT.NAME]: randomString(10), // 文件名
-                [NAMESPACE.ADVERTISEMENT_MANAGEMENT.ADVERTISEMENT.URL]: 'https://static.soulike.tech/userImage/1545187128767.webp', // 预览 URL
-            });
-        }
+
+        advertisementList.push({
+            [NAMESPACE.ADVERTISEMENT_MANAGEMENT.ADVERTISEMENT.ID]: 1, // 广告的 ID
+            [NAMESPACE.ADVERTISEMENT_MANAGEMENT.ADVERTISEMENT.TYPE]: 0, // 广告类型，枚举值
+            [NAMESPACE.ADVERTISEMENT_MANAGEMENT.ADVERTISEMENT.NAME]: '科技', // 文件名
+            [NAMESPACE.ADVERTISEMENT_MANAGEMENT.ADVERTISEMENT.URL]: 'http://m.360buyimg.com/mobilecms/s1000x707_jfs/t4945/65/1077318118/98250/75334f2e/58ec57dcNc4c2e234.jpg!q70.jpg', // 预览 URL
+        });
+        advertisementList.push({
+            [NAMESPACE.ADVERTISEMENT_MANAGEMENT.ADVERTISEMENT.ID]: 2, // 广告的 ID
+            [NAMESPACE.ADVERTISEMENT_MANAGEMENT.ADVERTISEMENT.TYPE]: 0, // 广告类型，枚举值
+            [NAMESPACE.ADVERTISEMENT_MANAGEMENT.ADVERTISEMENT.NAME]: '科技', // 文件名
+            [NAMESPACE.ADVERTISEMENT_MANAGEMENT.ADVERTISEMENT.URL]: 'http://m.360buyimg.com/mobilecms/s1000x707_jfs/t4945/65/1077318118/98250/75334f2e/58ec57dcNc4c2e234.jpg!q70.jpg', // 预览 URL
+        });
+        advertisementList.push({
+            [NAMESPACE.ADVERTISEMENT_MANAGEMENT.ADVERTISEMENT.ID]: 3, // 广告的 ID
+            [NAMESPACE.ADVERTISEMENT_MANAGEMENT.ADVERTISEMENT.TYPE]: 0, // 广告类型，枚举值
+            [NAMESPACE.ADVERTISEMENT_MANAGEMENT.ADVERTISEMENT.NAME]: '科技', // 文件名
+            [NAMESPACE.ADVERTISEMENT_MANAGEMENT.ADVERTISEMENT.URL]: 'http://m.360buyimg.com/mobilecms/s1000x707_jfs/t4945/65/1077318118/98250/75334f2e/58ec57dcNc4c2e234.jpg!q70.jpg', // 预览 URL
+        });
+        advertisementList.push({
+            [NAMESPACE.ADVERTISEMENT_MANAGEMENT.ADVERTISEMENT.ID]: 4, // 广告的 ID
+            [NAMESPACE.ADVERTISEMENT_MANAGEMENT.ADVERTISEMENT.TYPE]: 0, // 广告类型，枚举值
+            [NAMESPACE.ADVERTISEMENT_MANAGEMENT.ADVERTISEMENT.NAME]: '科技', // 文件名
+            [NAMESPACE.ADVERTISEMENT_MANAGEMENT.ADVERTISEMENT.URL]: 'http://m.360buyimg.com/mobilecms/s1000x707_jfs/t4945/65/1077318118/98250/75334f2e/58ec57dcNc4c2e234.jpg!q70.jpg', // 预览 URL
+        });
+        advertisementList.push({
+            [NAMESPACE.ADVERTISEMENT_MANAGEMENT.ADVERTISEMENT.ID]: 5, // 广告的 ID
+            [NAMESPACE.ADVERTISEMENT_MANAGEMENT.ADVERTISEMENT.TYPE]: 0, // 广告类型，枚举值
+            [NAMESPACE.ADVERTISEMENT_MANAGEMENT.ADVERTISEMENT.NAME]: '科技', // 文件名
+            [NAMESPACE.ADVERTISEMENT_MANAGEMENT.ADVERTISEMENT.URL]: 'http://m.360buyimg.com/mobilecms/s1000x707_jfs/t4945/65/1077318118/98250/75334f2e/58ec57dcNc4c2e234.jpg!q70.jpg', // 预览 URL
+        });
+        advertisementList.push({
+            [NAMESPACE.ADVERTISEMENT_MANAGEMENT.ADVERTISEMENT.ID]: 6, // 广告的 ID
+            [NAMESPACE.ADVERTISEMENT_MANAGEMENT.ADVERTISEMENT.TYPE]: 0, // 广告类型，枚举值
+            [NAMESPACE.ADVERTISEMENT_MANAGEMENT.ADVERTISEMENT.NAME]: '科技', // 文件名
+            [NAMESPACE.ADVERTISEMENT_MANAGEMENT.ADVERTISEMENT.URL]: 'http://m.360buyimg.com/mobilecms/s1000x707_jfs/t4945/65/1077318118/98250/75334f2e/58ec57dcNc4c2e234.jpg!q70.jpg', // 预览 URL
+        });
+        advertisementList.push({
+            [NAMESPACE.ADVERTISEMENT_MANAGEMENT.ADVERTISEMENT.ID]: 7, // 广告的 ID
+            [NAMESPACE.ADVERTISEMENT_MANAGEMENT.ADVERTISEMENT.TYPE]: 0, // 广告类型，枚举值
+            [NAMESPACE.ADVERTISEMENT_MANAGEMENT.ADVERTISEMENT.NAME]: '科技', // 文件名
+            [NAMESPACE.ADVERTISEMENT_MANAGEMENT.ADVERTISEMENT.URL]: 'http://m.360buyimg.com/mobilecms/s1000x707_jfs/t4945/65/1077318118/98250/75334f2e/58ec57dcNc4c2e234.jpg!q70.jpg', // 预览 URL
+        });
+        advertisementList.push({
+            [NAMESPACE.ADVERTISEMENT_MANAGEMENT.ADVERTISEMENT.ID]: 8, // 广告的 ID
+            [NAMESPACE.ADVERTISEMENT_MANAGEMENT.ADVERTISEMENT.TYPE]: 0, // 广告类型，枚举值
+            [NAMESPACE.ADVERTISEMENT_MANAGEMENT.ADVERTISEMENT.NAME]: '科技', // 文件名
+            [NAMESPACE.ADVERTISEMENT_MANAGEMENT.ADVERTISEMENT.URL]: 'http://m.360buyimg.com/mobilecms/s1000x707_jfs/t4945/65/1077318118/98250/75334f2e/58ec57dcNc4c2e234.jpg!q70.jpg', // 预览 URL
+        });
+        advertisementList.push({
+            [NAMESPACE.ADVERTISEMENT_MANAGEMENT.ADVERTISEMENT.ID]: 9, // 广告的 ID
+            [NAMESPACE.ADVERTISEMENT_MANAGEMENT.ADVERTISEMENT.TYPE]: 0, // 广告类型，枚举值
+            [NAMESPACE.ADVERTISEMENT_MANAGEMENT.ADVERTISEMENT.NAME]: '科技', // 文件名
+            [NAMESPACE.ADVERTISEMENT_MANAGEMENT.ADVERTISEMENT.URL]: 'http://m.360buyimg.com/mobilecms/s1000x707_jfs/t4945/65/1077318118/98250/75334f2e/58ec57dcNc4c2e234.jpg!q70.jpg', // 预览 URL
+        });
+        advertisementList.push({
+            [NAMESPACE.ADVERTISEMENT_MANAGEMENT.ADVERTISEMENT.ID]: 10, // 广告的 ID
+            [NAMESPACE.ADVERTISEMENT_MANAGEMENT.ADVERTISEMENT.TYPE]: 0, // 广告类型，枚举值
+            [NAMESPACE.ADVERTISEMENT_MANAGEMENT.ADVERTISEMENT.NAME]: '科技', // 文件名
+            [NAMESPACE.ADVERTISEMENT_MANAGEMENT.ADVERTISEMENT.URL]: 'http://m.360buyimg.com/mobilecms/s1000x707_jfs/t4945/65/1077318118/98250/75334f2e/58ec57dcNc4c2e234.jpg!q70.jpg', // 预览 URL
+        });
 
         ctx.body = new SuccessResponse(
             {
@@ -87,9 +138,9 @@ module.exports = router =>
     router.get(advertisementManagementPrefix('/getAdvertisementInfo'), async (ctx, next) =>
     {
         ctx.body = new SuccessResponse({
-            [NAMESPACE.ADVERTISEMENT_MANAGEMENT.ADVERTISEMENT.TYPE]: randomInteger(0, 1), // 广告类型，枚举值
-            [NAMESPACE.ADVERTISEMENT_MANAGEMENT.ADVERTISEMENT.NAME]: randomString(10), // 文件名
-            [NAMESPACE.ADVERTISEMENT_MANAGEMENT.IMAGE.QR_CODE_URL]: `https://${randomString()}.com`, // 二维码 URL
+            [NAMESPACE.ADVERTISEMENT_MANAGEMENT.ADVERTISEMENT.TYPE]: 0, // 广告类型，枚举值
+            [NAMESPACE.ADVERTISEMENT_MANAGEMENT.ADVERTISEMENT.NAME]: '科技', // 文件名
+            [NAMESPACE.ADVERTISEMENT_MANAGEMENT.IMAGE.QR_CODE_URL]: `http://www.dajiangsai.org`, // 二维码 URL
             [NAMESPACE.ADVERTISEMENT_MANAGEMENT.IMAGE.QR_CODE_POSITION]: randomInteger(1, 4), // 二维码位置
         });
         await next();
