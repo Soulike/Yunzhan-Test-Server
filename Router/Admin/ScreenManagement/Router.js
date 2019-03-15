@@ -100,4 +100,10 @@ module.exports = router =>
         ctx.body = new SuccessResponse();
         await next();
     });
+
+    router.post(screenManagementPrefix('/changeScreenInfo'), async (ctx, next) =>
+    {
+        ctx.body = new SuccessResponse();
+        await next();
+    });
 };

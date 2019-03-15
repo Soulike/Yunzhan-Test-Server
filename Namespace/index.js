@@ -9,3 +9,4 @@ const exportObj = {
 
 module.exports = exportObj;
 
+// export default exportObj;

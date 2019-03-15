@@ -24,5 +24,5 @@ module.exports = {
 
     TAG_INFO: {
         CURRENT_TAG_AMOUNT: 'currentTagAmount',
-    },
+    }
 };

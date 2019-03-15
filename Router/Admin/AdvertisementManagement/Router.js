@@ -101,4 +101,10 @@ module.exports = router =>
         await next();
     });
 
+    router.post(advertisementManagementPrefix('/deleteAdvertisements'), async (ctx, next) =>
+    {
+        ctx.body = new SuccessResponse();
+        await next();
+    });
+
 };

@@ -69,4 +69,10 @@ module.exports = router =>
         ctx.body = new SuccessResponse();
         await next();
     });
+
+    router.post(tagManagementPrefix('/deleteTags'), async (ctx, next) =>
+    {
+        ctx.body = new SuccessResponse();
+        await next();
+    });
 };

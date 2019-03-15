@@ -11,10 +11,10 @@ module.exports = {
     },
 
     SCREEN: {
-        ID: 'id',
+        ID: 'screenId',
         UUID: 'uuid',
-        NAME: 'name',
-        IS_RUNNING: 'isRunning',
+        NAME: 'screenName',
+        IS_RUNNING: 'screenIsRunning',
         RESOURCE_PACK_ID: 'resourcePackId',
         RESOURCE_PACK_NAME: 'resourcePackName',
     },
@@ -23,5 +23,5 @@ module.exports = {
         LOG: 'logList',
         SCREEN: 'screenList',
         SCREEN_ID: 'screenIdList',
-    },
+    }
 };

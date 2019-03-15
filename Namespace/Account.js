@@ -6,5 +6,5 @@ module.exports = {
     VERIFICATION: {
         NEW_PASSWORD: 'newPassword',
         VERIFICATION_CODE: 'verificationCode',
-    },
+    }
 };

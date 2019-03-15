@@ -25,7 +25,7 @@ app
     .use(router.allowedMethods())
     .use(async (ctx, next) =>
     {
-        await setTimeoutAsync(1000);
+        //await setTimeoutAsync(500);
         await next();
     })
     .use(async (ctx, next) =>

@@ -86,7 +86,7 @@ module.exports = router =>
 
         ctx.body = new SuccessResponse(
             {
-                [NAMESPACE.RESOURCE_PACK_MANAGEMENT.LIST.ADVERTISEMENT]: advertisementList,
+                [NAMESPACE.ADVERTISEMENT_MANAGEMENT.LIST.ADVERTISEMENT]: advertisementList,
             },
         );
         await next();
@@ -165,6 +165,12 @@ module.exports = router =>
     });
 
     router.post(resourcePackManagementPrefix('/changeResourcePackInfo'), async (ctx, next) =>
+    {
+        ctx.body = new SuccessResponse();
+        await next();
+    });
+
+    router.post(resourcePackManagementPrefix('/deleteResourcePacks'), async (ctx, next) =>
     {
         ctx.body = new SuccessResponse();
         await next();
